@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   build:
@@ -16,17 +17,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.8"
-    - name: Install wemake-python-styleguide
+    - name: Checkout repo
+      uses: actions/checkout@v3
+    - name: Check codestyle with wemake-python-styleguide 
       uses: wemake-services/wemake-python-styleguide@0.17.0
       with:
         reporter: 'github-pr-review'
       env:
         GITHUB_TOKEN: ${{ secrets.github_token }}
-    - name: Check codestyle
-      run: |
-        flake8 . --statistic
