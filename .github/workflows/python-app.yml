@@ -23,6 +23,10 @@ jobs:
         python-version: "3.8"
     - name: Install wemake-python-styleguide
       uses: wemake-services/wemake-python-styleguide@0.17.0
+      with:
+        reporter: 'github-pr-review'
+      env:
+        GITHUB_TOKEN: ${{ secrets.github_token }}
     - name: Check codestyle
       run: |
         flake8 . --statistic
