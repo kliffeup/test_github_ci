@@ -6,6 +6,7 @@ class A:
         pass
 
 
+
 def print_hi(name):
     print(f'Hi, {name}')
 
