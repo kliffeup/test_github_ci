@@ -1,14 +1,16 @@
 class A:
-    def __init__(self):
-        pass
-
-    def custom_method(self):
-        pass
+    def __init__(self, idx: int):
+        self.idx = idx
 
 
-def print_hi(name):
-    print(f'Hi, {name}')
+    def __getitem__(self, item):
+        return self.idx
+
+
+    def __len__(self):
+        return 2
 
 
 if __name__ == '__main__':
-    print_hi(input())
+    a = A(4)
+    print(a[0])
