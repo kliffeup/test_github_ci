@@ -14,6 +14,7 @@ jobs:
     - name: Lint with pre-commit
       run: |
         apt-get update
+        git config --global --add safe.directory '*'
         git fetch --all -q
         git switch $GITHUB_HEAD_REF
         git pull origin $GITHUB_HEAD_REF --rebase
