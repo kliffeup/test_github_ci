@@ -17,7 +17,6 @@ repos:
       - id: end-of-file-fixer
         exclude: ".*\\.md"
       - id: check-added-large-files
-        exclude: ^tests/test_data/model_cache
       - id: requirements-txt-fixer
         files: "requirements.*\\.in"
       - id: debug-statements
